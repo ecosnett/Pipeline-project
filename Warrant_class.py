@@ -3,7 +3,7 @@ from Holders_class import holders
 
 class warrant:
     register = []
-    def __init__(self, id, rate, StockID, AsAt):
+    def __init__(self, id, StockID, AsAt, rate):
         warrant.id = id
         warrant.rate = rate
         warrant.StockID = StockID

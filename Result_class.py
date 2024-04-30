@@ -16,4 +16,5 @@ class result:
         database.input(self.command)
 
     def ToStr(self):
-        return f"{self.designationid} with {self.shares} is owed {self.amount}"
+        return f"{self.designationid} holds {self.shares} shares and is owed {self.amount}"
+    

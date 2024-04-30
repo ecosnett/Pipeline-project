@@ -6,6 +6,7 @@ from Enum_class import rounding
 class calculation:
     _results = []
     _total = 0
+    final_results = []
     def __init__(self, warrant):
         self.warrant = warrant
 
@@ -49,7 +50,10 @@ class calculation:
 
     def print_results(self):
         for result in self.results:
-            print(result.ToStr())
-            result.move_data()
-        print(f"Total for {warrant.AsAt}: {self.total}")
+            #result.move_data()
+            calculation.final_results.append(result.ToStr())
+        calculation.final_results.append(f"Total for {warrant.AsAt}: {self.total}")
+        return calculation.final_results 
+        
+
 

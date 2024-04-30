@@ -9,4 +9,3 @@ class holders:
 
     def __str__(self):
         return f"{self.fname} {self.lname}, {self.address}. Holding: {self.holding}"
-    

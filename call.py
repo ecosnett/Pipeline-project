@@ -1,10 +1,15 @@
 from Warrant_class import warrant
 from Calculation_class import calculation
- 
+from DB_class import database
 
-mywarrant = warrant(7, 0.01, 1, '2024-03-29')
-mywarrant.populate_reg()
-mywarrant.print_list()
-calc = calculation(mywarrant)
-calc.calculate()
-calc.print_results()
+ 
+def start(identifier):
+    fetchall = database.retrieve(f"""select StockID, RecordDate, Rate from Warrants where ID = {identifier}""")
+
+    mywarrant = warrant(id, fetchall[0][0], fetchall[0][1], fetchall[0][2])
+    mywarrant.populate_reg()
+    calc = calculation(mywarrant)
+    calc.calculate()
+    return calc.print_results()
+
+
