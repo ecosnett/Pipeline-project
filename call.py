@@ -10,9 +10,8 @@ def start(identifier):
     mywarrant.populate_reg()
     calc = calculation(mywarrant)
     calc.calculate()
-    return print(calc.print_results())
+    return calc.print_results()
 
-start(12)
-
+#print(start(12))
 
 

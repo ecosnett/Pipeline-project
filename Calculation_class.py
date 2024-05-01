@@ -2,13 +2,32 @@ from Warrant_class import warrant
 from Result_class import result
 import math
 from Enum_class import rounding
+from DB_class import database
 
 class calculation:
-    _results = []
-    _total = 0
-    final_results = []
-    def __init__(self, warrant):
-        self.warrant = warrant
+    def __init__(self, warrant_id):
+        self.warrant_id = warrant_id
+        self._results = []
+        self._total = 0
+        self.final_results = []
+
+
+    @property
+    def final_results(self):
+        return self._final_results
+
+    @final_results.setter
+    def final_results(self, value):
+        self._final_results = value
+
+    @property
+    def warrant_id(self):
+        return self._warrant_id
+    
+    @warrant_id.setter
+    def warrant_id(self, value):
+        self._warrant_id = value
+
 
     @property
     def warrant(self):
@@ -28,10 +47,18 @@ class calculation:
 
     @property
     def total(self):
-        return sum(i.amount for i in self.results)         
+        return sum(i.amount for i in self.results)  
+
+    def start(self):
+        fetchall = database.retrieve(f"""select StockID, RecordDate, Rate from Warrants where ID = {self.warrant_id}""")
+
+        self.warrant = warrant(self.warrant_id, fetchall[0][0], fetchall[0][1], fetchall[0][2])
+        self.warrant.populate_reg()
+        self.calculate()
+        return self.print_results()      
     
     def calculate(self):
-        for i in warrant.register:
+        for i in self.warrant.register:
             choice = (rounding(1))
             match choice:
                 case choice.up:
@@ -51,9 +78,9 @@ class calculation:
     def print_results(self):
         for result in self.results:
             #result.move_data()
-            calculation.final_results.append(result.ToStr())
-        calculation.final_results.append(f"Total for {warrant.AsAt}: {self.total}")
-        return calculation.final_results 
+            self.final_results.append(result.ToStr())
+        self.final_results.append(f"Total for {warrant.AsAt}: {self.total}")
+        return f"Total for {warrant.AsAt}: {self.total}"
         
 
 
