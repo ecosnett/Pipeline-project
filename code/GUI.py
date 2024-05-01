@@ -10,10 +10,9 @@ def window(event=None):
     root2.title("Calculation")
     root2.geometry('350x400')
     d = Text(root2)
-    for i in div:
-        d.insert(END, i + '\n')
-
-    d.insert(END)
+    #for i in div:
+        #d.insert(END, i + '\n')
+    d.insert(END, div)
     d.pack()
 
 root = tk.Tk()
