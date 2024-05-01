@@ -1,5 +1,4 @@
 import pytest
-from call import start
 from Calculation_class import calculation
 
 @pytest.mark.parametrize("id, div", [
