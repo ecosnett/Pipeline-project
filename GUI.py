@@ -12,6 +12,8 @@ def window(event=None):
     d = Text(root2)
     for i in div:
         d.insert(END, i + '\n')
+
+    d.insert(END)
     d.pack()
 
 root = tk.Tk()

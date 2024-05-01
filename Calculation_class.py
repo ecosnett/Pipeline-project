@@ -31,7 +31,7 @@ class calculation:
 
     @property
     def warrant(self):
-        return self._warrant
+        return self._warrant_id
     
     @warrant.setter
     def warrant(self, value):
