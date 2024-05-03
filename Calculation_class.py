@@ -31,7 +31,7 @@ class calculation:
 
     @property
     def warrant(self):
-        return self._warrant_id
+        return self._warrant
     
     @warrant.setter
     def warrant(self, value):
@@ -82,5 +82,3 @@ class calculation:
         self.final_results.append(f"Total for {warrant.AsAt}: {self.total}")
         return f"Total for {warrant.AsAt}: {self.total}"
         
-
-

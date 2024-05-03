@@ -1,5 +1,5 @@
-import pytest
-import pyodbc 
-import math
-from enum import Enum
+pytest == 8.1.1
+pyodbc == 5.1.0
+math == 0.0.1
+enum34 == 1.1.10
  
